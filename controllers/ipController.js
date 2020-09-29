@@ -25,10 +25,7 @@ const getClientIpLocation = async (req, res) => {
                     let result = JSON.parse(json);
                     ipLocation = result.data.country_name
                     console.log(ipLocation);
-                    res.json({
-                        ip: userIp,
-                        location: ipLocation
-                    });
+                    
 
                 } catch (e) {
                     console.log('Error');
