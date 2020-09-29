@@ -41,7 +41,10 @@ const getClientIpLocation = async (req, res) => {
     // let location = getIpLocation(options);
     // // res.json(location);
     // console.log(location)
-    res.json(userIp);
+    res.json({
+        ip: userIp,
+        location: ipLocation
+    });
 }
 
 module.exports = {
