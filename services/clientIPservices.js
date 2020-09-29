@@ -21,6 +21,7 @@ const getIpLocation = (userIp) => {
     
         https.get(options, function (res) {
             let json = '';
+            let result = null;
             res.on('data', function (chunk) {
                 json += chunk;
             });
@@ -28,7 +29,7 @@ const getIpLocation = (userIp) => {
             res.on('end', function () {
                 if (res.statusCode === 200) {
                     try {
-                        let result = JSON.parse(json);
+                        result = JSON.parse(json);
                         console.log(result);
     
                     } catch (e) {
