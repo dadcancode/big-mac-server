@@ -1,11 +1,11 @@
-const { ipMiddleware } = require('../services/clientIPservices');
+const { ipMiddleware, getIpLocation } = require('../services/clientIPservices');
 
-const getClientIp = async (req, res) => {
+const getClientIpLocation = async (req, res) => {
     let userIp = ipMiddleware(req, res);
 
-    res.send(userIp);
+    res.send(`You are currently in ${userIp}`);
 }
 
 module.exports = {
-    getClientIp
+    getClientIpLocation
 }

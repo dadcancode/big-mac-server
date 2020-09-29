@@ -1,9 +1,9 @@
 const express = require('express');
 
-const { getClientIp } = require('../controllers/ipController');
+const { getClientIpLocation } = require('../controllers/ipController');
 
 const router = express.Router();
 
-router.get('/', getClientIp);
+router.get('/', getClientIpLocation);
 
 module.exports = router;
