@@ -12,8 +12,9 @@ const getClientIpLocation = async (req, res) => {
         headers: {'User-Agent' : 'request'}
     };
 
-    let ipLocation = https.get(options, function(res) {
+    https.get(options, function(res) {
         let json = '';
+        let result = null;
         res.on('data', function (chunk) {
             json += chunk;
         });
@@ -21,11 +22,8 @@ const getClientIpLocation = async (req, res) => {
         res.on('end', function () {
             if (res.statusCode === 200) {
                 try {
-                    let result = JSON.parse(json);
-                    
-                    console.log(ipLocation);
-                    return result.data.country_name
-                    
+                    result = JSON.parse(json);
+                    console.log(result)                    
 
                 } catch (e) {
                     console.log('Error');
@@ -34,6 +32,8 @@ const getClientIpLocation = async (req, res) => {
                 console.log(`Status: ${res.statusCode}`)
             }
         });
+
+        res.json({location: result.data.country_name})
     }).on('error', function (err) {
         console.log(err);
     })
