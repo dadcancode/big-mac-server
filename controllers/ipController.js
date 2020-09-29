@@ -40,8 +40,7 @@ const getClientIpLocation = async (req, res) => {
 
 
     res.json({
-        ip: userIp,
-        location: ipLocation
+        ip: userIp
     })
     
 }
