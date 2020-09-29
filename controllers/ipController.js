@@ -33,7 +33,7 @@ const getClientIpLocation = async (req, res) => {
             }
         });
 
-        res.json({location: result.data.country_name})
+        // res.json({location: result.data.country_name})
     }).on('error', function (err) {
         console.log(err);
     })
