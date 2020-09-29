@@ -3,7 +3,6 @@ const https = require('https');
 
 const getClientIpLocation = async (req, res) => {
     let userIp = await ipMiddleware(req, res);
-    let ipLocation = null;
 
     const options = {
         host: 'ipvigilante.com',
@@ -13,7 +12,7 @@ const getClientIpLocation = async (req, res) => {
         headers: {'User-Agent' : 'request'}
     };
 
-    https.get(options, function (res) {
+    let ipLocation = https.get(options, function(res) {
         let json = '';
         res.on('data', function (chunk) {
             json += chunk;
@@ -23,8 +22,9 @@ const getClientIpLocation = async (req, res) => {
             if (res.statusCode === 200) {
                 try {
                     let result = JSON.parse(json);
-                    ipLocation = result.data.country_name
+                    
                     console.log(ipLocation);
+                    return result.data.country_name
                     
 
                 } catch (e) {
