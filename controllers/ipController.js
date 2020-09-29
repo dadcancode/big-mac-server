@@ -5,7 +5,7 @@ const getClientIpLocation = async (req, res) => {
     // let ipLocation = await getIpLocation(userIp);
     // console.log(ipLocation);
 
-    res.send(`You are currently in ${userIp}`);
+    // res.send(`You are currently in ${userIp}`);
     res.json(userIp);
 }
 
