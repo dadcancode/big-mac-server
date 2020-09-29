@@ -1,6 +1,7 @@
 'use strict';
 const requestIp = require('request-ip');
 const https = require('https');
+const { getMacData } = require('../repositories/macDataRepo');
 
 const ipMiddleware = async (req, res) => {
     return requestIp.getClientIp(req);
@@ -47,7 +48,12 @@ const getIpLocation = (userIp) => {
 
 }
 
+const parseMacData = async () => {
+    let data = await getMacData();
+}
+
 module.exports = {
     ipMiddleware,
-    getIpLocation
+    getIpLocation,
+    parseMacData
 }
