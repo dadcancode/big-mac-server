@@ -3,7 +3,7 @@ const https = require('https');
 
 const getClientIpLocation = async (req, res) => {
     let userIp = await ipMiddleware(req, res);
-    let ipLocation = ''
+    let ipLocation = null;
 
     const options = {
         host: 'ipvigilante.com',
@@ -39,9 +39,10 @@ const getClientIpLocation = async (req, res) => {
     })
 
 
-    // let location = getIpLocation(options);
-    // // res.json(location);
-    // console.log(location)
+    res.json({
+        ip: userIp,
+        location: ipLocation
+    })
     
 }
 
