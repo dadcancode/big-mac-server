@@ -2,7 +2,7 @@ const fs = require('fs');
 
 
 const getMacData = () => {
-    let result = fs.readFile('C:/Users/Crystal/Desktop/Portfolio/big-mac-server/staticData/mac-data.txt', (err, data) => {
+    let result = fs.readFile('file:///C:/Users/Crystal/Desktop/Portfolio/big-mac-server/staticData/mac-data.txt', (err, data) => {
         return data
     })
     return result
