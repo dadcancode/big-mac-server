@@ -1,9 +1,8 @@
 const fs = require('fs');
 
 const getMacData = async () => {
-    let result = null;
-    fs.readFile('../staticData/mac-data.txt', (err, data) => {
-        result = data;
+    let result = await fs.readFile('../staticData/mac-data.txt', (err, data) => {
+        return data
     })
     return result
 }
