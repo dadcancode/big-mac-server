@@ -6,8 +6,6 @@ const mainController = async (req, res) => {
 
     let ipLocation = await getIpLocation(userIp);
 
-    let macObj = await getMacData();
-
     parseMacData();
 
 
