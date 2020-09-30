@@ -9,39 +9,40 @@ const ipMiddleware = async(req, res) => {
 
 const API_URL = 'https://ipvigilante.com/json';
 
-const getIpLocation = async (ip) => {
-    const options = {
-        host: 'ipvigilante.com',
-        path: `${ip}/full`,
-        port: 443,
-        method: 'GET',
-        headers: {'User-Agent' : 'request'}
-    };
-    
-    
-    https.get(options, (res) => {
-        let json = '';
-        res.on('data', (chunk) => {
-            json += chunk;
-        });
+const getIpLocation = (userIP) => {
+    return new Promise((resolve, reject) => {
+        const options = {
+            host: 'ipvigilante.com',
+            path: `/${userIP}/full`,
+            port: 443,
+            method: 'GET',
+            headers: { 'User-Agent' : 'request'}
+        }
 
-        res.on('end', () => {
-            if (res.statusCode === 200) {
-                try {
-                    console.log('i tried!')
-                    let result = JSON.parse(json);
-                    console.log(result)
-                    return result;
-                } catch (e) {
-                    console.log('Error')
+        https.get(options, function (res) {
+            let json = '';
+            let result = null;
+            res.on('data', function (chunk) {
+                json += chunk
+            });
+
+            res.on('end', function () {
+                if (res.statusCode === 200) {
+                    try {
+                        result = JSON.parse(json);
+
+                    } catch (e) {
+                        console.log('Error')
+                    }
+                } else {
+                    console.log(`Status: ${res.statusCode}`)
                 }
-            } else {
-                console.log(`Status ${res.statusCode}`)
-            }
-        });
-    }).on('error', (err) => {
-        console.log(err)
-    });
+                resolve(result.data.country_name)
+            });
+        }).on('error', function (err) {
+            console.log(err);
+        })
+    })
 }
 
 const parseMacData = async () => {
