@@ -11,7 +11,7 @@ const mainController = async (req, res) => {
 
     res.json({
         ip: userIp,
-        location: ipLocation
+        // location: ipLocation
     })
     
 }
