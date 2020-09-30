@@ -6,12 +6,13 @@ const mainController = async (req, res) => {
 
     let ipLocation = await getIpLocation(userIp);
 
-    parseMacData();
+    let macData = parseMacData();
 
 
     res.json({
         ip: userIp,
-        location: ipLocation
+        location: ipLocation,
+        data: macData
     })
     
 }
