@@ -1,14 +1,12 @@
-var fs = require('fs');
+const csvToJson = require('convert-csv-to-json');
 
 
 
 const getMacData = () => {
-    const csvPath = __dirname + '/mac-data.txt'
-    fs.readFile(csvPath, function (err, data) {
-        if (err) throw err;
-        console.log('data follows')
-        console.log(data);
-    })
+    const csvPath = __dirname + '/mac-data.csv'
+    let json = csvToJson.getJsonFromCsv(csvPath);
+
+    console.log(json);
 }
 
 module.exports = getMacData;
