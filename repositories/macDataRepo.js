@@ -1,15 +1,10 @@
-const fs = require('fs');
+const csv = require('csvtojson');
 
 
 const getMacData = () => {
-    let result = fs.readFile('file:///C:/Users/Crystal/Desktop/Portfolio/big-mac-server/staticData/mac-data.txt', (err, data) => {
-
-        if(err) {
-            throw err;
-        }
-        return data
-    })
-    return result
+    const csvFilePath = '../staticData/mac-data.txt';
+    let result = csv().fromFile(csvFilePath).then(json => {return json});
+    return result;
 }
 
 module.exports = getMacData;

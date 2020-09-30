@@ -48,8 +48,8 @@ const getIpLocation = (userIp) => {
 
 }
 
-const parseMacData = async () => {
-    let data = await getMacData();
+const parseMacData = () => {
+    let data = getMacData();
     console.log(data);
 }
 
