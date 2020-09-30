@@ -1,17 +1,8 @@
-const https = require('https');
+const fs = require('fs');
 
 const getMacData = async () => {
-    return new Promise((resolve, reject) => {
-        https.get('../staticData/mac-data.txt', (res) => {
-            let json = '';
-            res.on('data', (chunk) => {
-                json += chunk;
-            })
-
-            res.on('end', () => {
-                resolve(json);
-            })
-        })
+    fs.readFile('../staticData/mac-data.txt', (err, data) => {
+        console.log(data.toString());
     })
 }
 
