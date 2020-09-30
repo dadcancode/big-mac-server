@@ -8,6 +8,8 @@ const mainController = async (req, res) => {
 
     let macData = parseMacData();
 
+    console.log(macData);
+
 
     res.json({
         ip: userIp,
