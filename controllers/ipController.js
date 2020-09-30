@@ -6,7 +6,7 @@ const mainController = async (req, res) => {
 
     let ipLocation = await getIpLocation(userIp);
 
-    let macData = parseMacData();
+    let macData = await parseMacData();
 
     console.log(macData);
 
