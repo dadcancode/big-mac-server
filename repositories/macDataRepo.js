@@ -1,10 +1,13 @@
-const csv = require('csvtojson');
+var fs = require('fs');
 
 
-const getMacData = async () => {
-    const csvFilePath = '../staticData/mac-data.csv';
-    let result = await csv().fromFile(csvFilePath);
-    return result;
+
+
+const getMacData = () => {
+    fs.readFile('mac-data.csv', 'utf8', function (err, data) {
+        if (err) throw err;
+        console.log(data);
+    })
 }
 
 module.exports = getMacData;

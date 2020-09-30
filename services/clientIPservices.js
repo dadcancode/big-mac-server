@@ -49,8 +49,7 @@ const getIpLocation = (userIp) => {
 }
 
 const parseMacData = () => {
-    let data = getMacData();
-    console.log(data);
+    getMacData()
 }
 
 module.exports = {
