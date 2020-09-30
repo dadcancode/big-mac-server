@@ -50,6 +50,7 @@ const getIpLocation = (userIp) => {
 
 const parseMacData = async () => {
     let data = await getMacData();
+    console.log(data);
 }
 
 module.exports = {
