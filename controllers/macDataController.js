@@ -1,4 +1,4 @@
-const { parseMacData } = require('../services/clientIPservices');
+const { parseMacData } = require('../services/AppServices');
 
 
 const getMacDataObj = async (req, res) => {

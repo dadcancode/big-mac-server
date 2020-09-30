@@ -1,4 +1,4 @@
-const { ipMiddleware, getIpLocation, parseMacData } = require('../services/clientIPservices');
+const { ipMiddleware, getIpLocation, parseMacData } = require('../services/AppServices');
 const https = require('https');
 
 const mainController = async (req, res) => {
