@@ -4,14 +4,14 @@ const https = require('https');
 const mainController = async (req, res) => {
     let userIp = await ipMiddleware(req, res);
 
-    // let ipLocation = await getIpLocation(userIp);
+    let ipLocation = await getIpLocation(userIp);
 
-    parseMacData();
+    // parseMacData();
 
 
     res.json({
         ip: userIp,
-        // location: ipLocation
+        location: ipLocation
     })
     
 }
