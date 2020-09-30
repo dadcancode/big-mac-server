@@ -6,7 +6,7 @@ const getMacData = () => {
     const csvPath = __dirname + '/mac-data.csv'
     let json = csvToJson.getJsonFromCsv(csvPath);
 
-    console.log(json);
+    console.log(json[0]);
 }
 
 module.exports = getMacData;
