@@ -1,7 +1,7 @@
 'use strict';
 const requestIp = require('request-ip');
 const https = require('https');
-const { getMacData } = require('../repositories/macDataRepo');
+const getMacData = require('../repositories/macDataRepo');
 
 const ipMiddleware = async (req, res) => {
     return requestIp.getClientIp(req);
