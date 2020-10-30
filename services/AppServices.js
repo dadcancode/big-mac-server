@@ -30,6 +30,7 @@ const getIpLocation = (userIP) => {
                 if (res.statusCode === 200) {
                     try {
                         result = JSON.parse(json);
+                        console.log(result);
 
                     } catch (e) {
                         console.log('Error')
