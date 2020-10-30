@@ -12,7 +12,7 @@ const API_URL = 'https://ipvigilante.com/json';
 const getIpLocation = (userIP) => {
     return new Promise((resolve, reject) => {
         const options = {
-            host: 'ipvigilante.com',
+            host: API_URL,
             path: `/${userIP}/full`,
             port: 443,
             method: 'GET',
